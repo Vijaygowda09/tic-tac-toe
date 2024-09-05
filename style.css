@@ -1,145 +1,144 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
-:root {
-  --primary-color: #fff;
-  --secondary-color: #56baed;
-  --tertiary-color: black;
-  --fourth-color: #fff;
-  --fifth-color: #56baed;
-}
-
-html {
-  font-size: 62.5%;
-}
-
-body {
-  background: var(--secondary-color);
-}
-
-.select-box,
-.play-board,
-.result-box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: all 0.3s ease;
-}
-
-.select-box {
-  background: var(--primary-color);
-  padding: 2rem 2.5rem;
-  border-radius: 0.5rem;
-  max-width: 33rem;
-  width: 100%;
-  color: var(--tertiary-color);
-}
-
-.select-box header {
-  font-size: 2.3rem;
-  font-weight: 600;
-  text-align: center;
-}
-
-.options {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 2rem;
-}
-
 .options button {
+  width: 100%;
   font-size: 1.8rem;
-  padding: 1rem 2rem;
-  border: none;
-  background: var(--fifth-color);
-  color: var(--primary-color);
-  border-radius: 0.5rem;
+  font-weight: bold;
+  padding: 0.8rem 0;
+  margin-right: 1rem;
   cursor: pointer;
+  background: var(--secondary-color);
+  color: var(--fourth-color);
+  border-radius: 0.5rem;
   transition: all 0.3s ease;
+}
+
+.options button:last-child {
+  margin-right: 0;
 }
 
 .options button:hover {
-  background: var(--tertiary-color);
+  background: var(--fifth-color);
+  color: var(--sixth-color);
 }
 
 .play-board {
-  opacity: 0;
-  pointer-events: none;
-  transform: translate(-50%, -50%) scale(0.9);
+  display: none;
+  max-width: 38rem;
+  width: 100%;
+  background: var(--primary-color);
+  border-radius: 0.5rem;
+  padding: 2.5rem;
 }
 
 .play-board.show {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translate(-50%, -50%) scale(1);
+  display: block;
+}
+
+.details {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+.players {
+  position: relative;
+  display: inline-block;
+}
+
+.players span {
+  font-weight: bold;
+}
+
+.Xturn {
+  display: inline-block;
+}
+
+.Oturn {
+  display: none;
+}
+
+.players.active .Xturn {
+  display: none;
+}
+
+.players.active .Oturn {
+  display: inline-block;
+}
+
+.slider {
+  width: 100%;
+  height: 0.5rem;
+  background: var(--secondary-color);
+  border-radius: 5rem;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 .play-area {
-  margin-top: 2rem;
-}
-
-.play-area section {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
 }
 
-.play-area section span {
-  height: 8rem;
+section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+span {
+  font-size: 5rem;
+  font-weight: bold;
+  background: var(--tertiary-color);
+  color: var(--primary-color);
   width: 8rem;
+  height: 8rem;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+span:hover {
+  background: var(--fifth-color);
+  color: var(--fourth-color);
+}
+
+span i {
+  font-size: 4rem;
+}
+
+.result-box {
+  display: none;
+  max-width: 30rem;
+  width: 100%;
   background: var(--primary-color);
   border-radius: 0.5rem;
-  font-size: 4rem;
+  padding: 2.5rem;
   text-align: center;
-  line-height: 8rem;
-  color: var(--fifth-color);
+}
+
+.result-box.show {
+  display: block;
+}
+
+.won-text {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--tertiary-color);
+}
+
+.btn button {
+  font-size: 1.6rem;
+  font-weight: bold;
+  padding: 0.8rem 2rem;
+  background: var(--secondary-color);
+  color: var(--fourth-color);
+  border-radius: 0.5rem;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.play-area section span:hover {
+.btn button:hover {
   background: var(--fifth-color);
-}
-
-.result-box {
-  background: var(--primary-color);
-  padding: 2rem;
-  border-radius: 0.5rem;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.result-box.show {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.result-box .won-text {
-  font-size: 2.5rem;
-  text-align: center;
-  color: var(--tertiary-color);
-}
-
-.footer {
-  position: absolute;
-  bottom: 2rem;
-  width: 100%;
-  text-align: center;
-}
-
-.footer h4 {
-  color: var(--primary-color);
-}
-
-@media (max-width: 600px) {
-  .play-area section span {
-    height: 6rem;
-    width: 6rem;
-    font-size: 3rem;
-    line-height: 6rem;
-  }
 }
