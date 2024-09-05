@@ -3,7 +3,7 @@ const selectBox = document.querySelector(".select-box"),
     selectBtnO = selectBox.querySelector(".playerO"),
     playBoard = document.querySelector(".play-board"),
     players = document.querySelector(".players"),
-    allBox = document.querySelectorAll("section span"),
+    allBox = document.querySelectorAll(".play-area span"),
     resultBox = document.querySelector(".result-box"),
     wonText = resultBox.querySelector(".won-text"),
     replayBtn = resultBox.querySelector("button");
@@ -11,7 +11,7 @@ const selectBox = document.querySelector(".select-box"),
 let playerXIcon = "fas fa-times"; // FontAwesome cross icon
 let playerOIcon = "far fa-circle"; // FontAwesome circle icon
 let playerSign = "X"; // Current player sign
-let runBot = true; // Flag to control bot actions
+let runBot = false; // Disable bot for this version
 
 window.onload = () => {
     allBox.forEach(box => {
@@ -25,7 +25,7 @@ selectBtnX.addEventListener("click", () => {
 
 selectBtnO.addEventListener("click", () => {
     startGame();
-    players.classList.add("active"); // Set class for player O
+    players.classList.add("active"); // Player O starts
 });
 
 function startGame() {
@@ -35,21 +35,21 @@ function startGame() {
 
 function clickedBox(element) {
     if (!element.childElementCount) {
-        element.innerHTML = `<i class="${playerSign === "X" ? playerXIcon : playerOIcon}"></i>`;
+        element.innerHTML = <i class="${playerSign === "X" ? playerXIcon : playerOIcon}"></i>;
         element.setAttribute("id", playerSign);
-        element.style.pointerEvents = "none"; // Disable further clicks
+        element.style.pointerEvents = "none"; // Disable clicks
         selectWinner();
-        playerSign = playerSign === "X" ? "O" : "X"; // Switch players
+        playerSign = playerSign === "X" ? "O" : "X"; // Toggle players
         players.classList.toggle("active");
     }
 }
 
 function getIdVal(classname) {
-    return document.querySelector(`.box${classname}`).id;
+    return document.querySelector(.${classname}).id;
 }
 
 function checkIdSign(val1, val2, val3, sign) {
-    return getIdVal(val1) === sign && getIdVal(val2) === sign && getIdVal(val3) === sign;
+    return getIdVal(box${val1}) === sign && getIdVal(box${val2}) === sign && getIdVal(box${val3}) === sign;
 }
 
 function selectWinner() {
@@ -64,7 +64,7 @@ function selectWinner() {
             setTimeout(() => {
                 resultBox.classList.add("show");
                 playBoard.classList.remove("show");
-                wonText.innerHTML = `Player <p>${playerSign}</p> won the game!`;
+                wonText.innerHTML = Player <p>${playerSign}</p> won the game!;
             }, 100);
             return;
         }
@@ -88,6 +88,5 @@ replayBtn.addEventListener("click", () => {
     resultBox.classList.remove("show");
     playBoard.classList.remove("show");
     selectBox.classList.remove("hide");
-    playerSign = "X"; // Reset player sign
-    runBot = true; // Restart bot
+    playerSign = "X"; // Reset to player X
 });
