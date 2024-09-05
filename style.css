@@ -11,7 +11,6 @@
   --tertiary-color: black;
   --fourth-color: #fff;
   --fifth-color: #56baed;
-  --sixth-color: #56baed;
 }
 
 html {
@@ -34,7 +33,7 @@ body {
 
 .select-box {
   background: var(--primary-color);
-  padding: 2rem 2.5rem 2.5rem;
+  padding: 2rem 2.5rem;
   border-radius: 0.5rem;
   max-width: 33rem;
   width: 100%;
@@ -44,26 +43,28 @@ body {
 .select-box header {
   font-size: 2.3rem;
   font-weight: 600;
-  padding-bottom: 0.1rem;
-  border-bottom: 0.1rem solid #ccc;
+  text-align: center;
 }
 
 .options {
   display: flex;
-  width: 100%;
+  justify-content: space-between;
+  margin-top: 2rem;
 }
 
 .options button {
-  width: 100%;
   font-size: 1.8rem;
-  font-weight: 500;
-  padding: 0.8rem 0;
+  padding: 1rem 2rem;
   border: none;
-  background: var(--secondary-color);
-  border-radius: 0.5rem;
+  background: var(--fifth-color);
   color: var(--primary-color);
+  border-radius: 0.5rem;
   cursor: pointer;
   transition: all 0.3s ease;
+}
+
+.options button:hover {
+  background: var(--tertiary-color);
 }
 
 .play-board {
@@ -84,11 +85,10 @@ body {
 
 .play-area section {
   display: flex;
+  justify-content: space-between;
 }
 
 .play-area section span {
-  display: block;
-  margin: 0.2rem;
   height: 8rem;
   width: 8rem;
   background: var(--primary-color);
@@ -98,64 +98,43 @@ body {
   line-height: 8rem;
   color: var(--fifth-color);
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.play-area section span:hover {
+  background: var(--fifth-color);
 }
 
 .result-box {
   background: var(--primary-color);
   padding: 2rem;
-  font-weight: bold;
-  border-radius: 5px;
-  max-width: 35rem;
-  width: 100%;
+  border-radius: 0.5rem;
   opacity: 0;
   pointer-events: none;
-  transform: translate(-50%, -50%) scale(1);
 }
 
 .result-box.show {
   opacity: 1;
   pointer-events: auto;
-  transform: translate(-50%, -50%) scale(1);
 }
 
 .result-box .won-text {
   font-size: 2.5rem;
+  text-align: center;
   color: var(--tertiary-color);
-  font-weight: bold;
-  display: flex;
-  justify-content: center;
-}
-
-.result-box .btn {
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
-}
-
-.result-box .btn button {
-  font-size: 1.8rem;
-  font-weight: 500;
-  padding: 0.8rem 2rem;
-  color: var(--fourth-color);
-  border: none;
-  background: var(--secondary-color);
-  border-radius: 0.5rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
 }
 
 .footer {
-  position: relative;
-  padding: 0.5rem !important;
-  background-color: #212529 !important;
-}
-
-.footer h4 {
-  color: white;
+  position: absolute;
+  bottom: 2rem;
+  width: 100%;
   text-align: center;
 }
 
-/* Media Queries for Responsiveness */
+.footer h4 {
+  color: var(--primary-color);
+}
+
 @media (max-width: 600px) {
   .play-area section span {
     height: 6rem;
